@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    project: expense
+    environment: dev
+    component: data-base
+spec:
+  replica: 3
+  selector:
+    matchLabels:
+      project: expense
+      environment: dev
+      component: data-base
+template:
+  metadata:
+    labels:
+      project: expense
+      environment: dev
+      component: data-base
+  spec:
+    containers:
+    - name: mysql
+      image: vishnupriyadh/mysql:1.0.0
+
+  
