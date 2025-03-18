@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vishnupriyadh/frontend:1.1.0
+        image: vishnupriyadh/frontend:1.2.0
 
 ---
 # frontend-service is created for connectivity between frontend and backend
