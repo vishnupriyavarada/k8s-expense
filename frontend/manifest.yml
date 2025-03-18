@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace : expense
+  name: frontend
+  labels:
+    project: expense
+    environment: dev
+    component: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: expense
+      environment: dev
+      component: frontend
+  template:
+    metadata:
+      labels:
+        project: expense
+        environment: dev
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: vishnupriyadh/frontend:1.0.0
+
+---
+# frontend-service is created for connectivity between frontend and backend
+# Attach service to frontend
+apiVersion: v1
+kind : Service
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  type: LoadBalancer # since we have to expose frontend externally to internet hence we are using LoadBalancer
+  selector: # labels are used as selctor
+    project: expense
+    environment: dev
+    component: frontend
+  ports:
+  - protocol: TCP
+    port: 80 # service port 
+    targetPort: 80 # Pod port 
+
+
+
+
+
+
+  
