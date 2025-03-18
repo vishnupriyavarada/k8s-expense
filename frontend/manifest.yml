@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vishnupriyadh/frontend:1.0.0
+        image: vishnupriyadh/frontend:1.1.0
 
 ---
 # frontend-service is created for connectivity between frontend and backend
@@ -41,8 +41,8 @@ spec:
     component: frontend
   ports:
   - protocol: TCP
-    port: 80 # service port 
-    targetPort: 80 # Pod port 
+    port: 80 # service port. Keep it 80 otherwise we have to give to user 8080 without dns which is not good
+    targetPort: 8080 # Pod port 
 
 
 
