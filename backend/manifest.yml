@@ -26,7 +26,7 @@ spec:
         image: vishnupriyadh/backend:1.0.0
 
 ---
-# backend-service is created for connectivity between backend and backend
+# backend-service is created for connectivity between backend and database
 # Attach service to backend
 apiVersion: v1
 kind : Service
