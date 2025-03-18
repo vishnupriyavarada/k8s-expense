@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace : expense
-  name: backend-deployment
+  name: backend
   labels:
     project: expense
     environment: dev
@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind : Service
 metadata:
-  name: backend-service
+  name: backend
   namespace: expense
 spec:
   selector: # labels are used as selctor
