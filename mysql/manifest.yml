@@ -25,4 +25,23 @@ spec:
       - name: mysql
         image: vishnupriyadh/mysql:1.0.0
 
+---
+# mysql-service is created for connectivity between mysql and backend
+# Attach service to mysql
+apiVersion: v1
+kind : Service
+metadata:
+  name: mysql-service
+spec:
+  selector: # labels are used as selctor
+    project: expense
+    environment: dev
+    component: data-base
+  ports:
+  - protocol: TCP
+    port: 3306 # service port - 3306 is standard mysql port. Here service port can be anything but lets keep same as 3306 to avoid confusions
+    targetPort: 3306 # Pod port - 3306 is standard mysql port
+
+
+
   
